@@ -60,28 +60,12 @@ var files = {
   main: paths.styles.src + '/',
   // SCRIPTS
   scriptsMain: [
-    paths.scripts.src + 'vendor/jquery.js',
-    paths.scripts.src + 'vendor/accessibility.js',
-    paths.scripts.src + 'vendor/mobile-detect.js',
-    paths.scripts.src + 'vendor/accessible-nav.js',
-    paths.scripts.src + 'vendor/accordions.js',
-    // paths.scripts.src + 'vendor/file-input.js',
-    // paths.scripts.src + 'vendor/enquire.js',
-    // paths.scripts.src + 'vendor/jquery.cycle2.js',
-    // paths.scripts.src + 'vendor/jquery.cycle2.swipe.js',
-    // paths.scripts.src + 'vendor/jquery.cycle2.center.js',
-    // paths.scripts.src + 'vendor/jquery.magnific-popup.js',
-    // paths.scripts.src + 'vendor/modal.js',
-    // paths.scripts.src + 'vendor/responsive-videos.js',
-    // paths.scripts.src + 'vendor/tabs.js',
-    // paths.scripts.src + 'vendor/tables.js',
     paths.scripts.src + 'main.js'
   ],
   scriptsHomepage: [
     paths.scripts.src + 'homepage.js'
   ],
   scriptsSubpage: [
-    // paths.scripts.src + 'vendor/jquery.inputmask.bundle.js',
     paths.scripts.src + 'subpage.js'
   ]
 };
