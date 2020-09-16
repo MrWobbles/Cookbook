@@ -1,0 +1,135 @@
+// tables
+@include large-up {
+  table {
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+      @include fontsize(18 24);
+      color: white;
+      background: $astronaut;
+      // border-top-left-radius: 6px;
+      // border-top-right-radius: 6px;
+      white-space: nowrap;
+
+      th {
+        padding: 10px 20px;
+        text-align: left;
+        // border-right: 2px solid $dark-monza;
+        border-right: 1px solid rgba(white, 0.1);
+
+        &:first-child {
+
+          // border-top-left-radius: 6px;
+        }
+
+        &:last-child {
+          // border-top-right-radius: 6px;
+          border-right: 0;
+        }
+      }
+    }
+
+    tbody {
+      // @include lato-regular;
+      @include fontsize(18 24);
+      // color: $mineshaft;
+
+      tr {
+        &:nth-child(odd) {
+          // background: white;
+          background: rgba($mercury, 0.35);
+        }
+
+        &:nth-child(even) {
+          // background: $alabaster;
+          background: rgba($mercury, 0.6);
+        }
+
+        td {
+          position: relative;
+          padding: 10px 20px;
+          border-right: 1px solid $mercury;
+          // border-bottom: 2px solid $mercury;
+          word-wrap: break-word;
+
+          &:first-child {
+            padding-left: 22px;
+            // border-left: 0;
+
+            // &:before {
+            //   position: absolute;
+            //   top: 0;
+            //   left: 0;
+            //   width: 2px;
+            //   height: 100%;
+            //   background: $mercury;
+            //   content: '';
+            // }
+          }
+
+          &:last-child {
+            padding-right: 22px;
+            border-right: 0;
+
+            // &:after {
+            //   position: absolute;
+            //   top: 0;
+            //   right: 0;
+            //   width: 2px;
+            //   height: 100%;
+            //   background: $mercury;
+            //   content: '';
+            // }
+          }
+        }
+      }
+    }
+  }
+}
+@include mq(0 $large) {
+  table.responsive-table {
+    @include fontsize(16 21);
+    // border-left: 2px solid $mercury;
+    // border-bottom: 2px solid $mercury;
+    // border-right: 2px solid $mercury;
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          background: rgba($mercury, 0.35);
+        }
+
+        &:nth-child(even) {
+          background: rgba($mercury, 0.6);
+
+          td:first-child:before,
+          td:last-child:after {
+            display: block;
+          }
+        }
+
+        td {
+          position: relative;
+          padding: 0;
+        }
+      }
+
+      tr {
+      }
+    }
+
+    .cell-heading,
+    .cell-content {
+      padding: 5px 10px;
+    }
+
+    .cell-heading {
+      @include fontsize(18 24);
+      color: white;
+      background: $astronaut;
+    }
+  }
+}

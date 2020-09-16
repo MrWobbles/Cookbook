@@ -1,0 +1,73 @@
+// tabs
+.tabs {
+  .tab-con {
+    margin-bottom: 0;
+  }
+
+  .tab-list[role='tablist'] {
+    // display: flex;
+    text-transform: none;
+
+    li {
+      // align-self: flex-end;
+      margin-right: 5px;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      a {
+        position: relative;
+        bottom: -4px;
+        padding: 14px 32px;
+        @include fontsize(16 24);
+        background: $mercury;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+
+        &[aria-selected] {
+          bottom: 0;
+          padding: 18px 32px;
+          color: white;
+          background: $astronaut;
+        }
+
+        &:visited {
+          color: $codgray;
+          background: $mercury;
+        }
+
+        &:focus,
+        &:hover {
+          padding: 18px 32px;
+          color: white;
+          background: $astronaut;
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    padding: 30px 30px 45px 30px;
+    color: $dovegray;
+    background: rgba($mercury, 0.35);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: auto;
+    @include medium-up {
+      border-top-right-radius: 5px;
+    }
+
+    * {
+      @include fontsize(16 26);
+    }
+
+    p:first-of-type {
+      margin-top: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

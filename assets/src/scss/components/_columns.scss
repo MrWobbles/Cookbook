@@ -1,0 +1,103 @@
+.two-column,
+.three-column,
+.four-column,
+.five-column,
+.six-column,
+ul.two-column,
+ul.three-column,
+ul.four-column,
+ul.five-column,
+ul.six-column {
+    @include medium-up {
+        display: flex;
+        margin: 0;
+
+        flex-wrap: wrap;
+    }  margin: 0;
+    padding: 0;
+    list-style: none;
+    .col,
+    li.col {
+        width: 100%;
+    }
+
+    li.col {
+        margin: 0;
+        padding: 0;
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.two-column .col,
+ul.two-column li.col {
+    @include medium-up {
+        padding: rem-calc(0 25px 25px 25px);
+        width: 50%;
+    }
+}
+
+.three-column .col,
+ul.three-column li.col {
+    @include medium-up {
+        padding: rem-calc(0 25px 25px 25px);
+        width: 50%;
+    }
+
+@include large-up {
+        width: 33.3%;
+    }
+}
+
+.four-column .col,
+ul.four-column li.col {
+    @include medium-up {
+        padding: rem-calc(0 25px 25px 25px);
+        width: 50%;
+    }
+
+@include large-up {
+        width: 25%;
+    }
+}
+
+.five-column .col,
+ul.five-column li.col {
+    @include medium-up {
+        padding: rem-calc(0 25px 25px 25px);
+        width: 50%;
+    }
+
+@include large-up {
+        width: 20%;
+    }
+}
+
+.six-column .col,
+ul.six-column li.col {
+    @include medium-up {
+        padding: rem-calc(0 25px 25px 25px);
+        width: 50%;
+    }
+
+@include large-up {
+        width: 20%;
+    }
+
+@include xlarge-up {
+        width: 16.66666666666667%;
+    }
+}
+
+.style-guide .col {
+    border: 3px solid #1a1a1a;
+    border-top: 0;
+    border-right: 0;
+    background: rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+        border-right: 3px solid #1a1a1a;
+    }
+}

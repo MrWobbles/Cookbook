@@ -1,0 +1,75 @@
+.main-content,
+.footer-cta {
+  .btn-primary,
+  .btn-secondary,
+  .btn-tertiary {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    padding: 8px 30px 10px;
+    @include fontsize(16 30);
+    color: white;
+    text-decoration: none;
+    border: 0;
+    border-radius: 5px;
+    background: $astronaut;
+
+    &:visited {
+      color: white;
+    }
+
+    &:focus,
+    &:hover {
+      color: white;
+      border: 0;
+      background: $bigstone;
+    }
+  }
+
+  .btn-secondary {
+    color: $codgray;
+    background: $yelloworange;
+
+    &:visited {
+      color: $codgray;
+    }
+
+    &:hover,
+    &:focus {
+      color: $codgray;
+      background: $fuelyellow;
+    }
+  }
+
+  .btn-tertiary {
+    color: $codgray;
+    border: 2px solid $mercury;
+    background: transparent;
+
+    &:visited {
+      color: $codgray;
+    }
+
+    &:hover,
+    &:focus {
+      color: $astronaut;
+      border: 2px solid $astronaut;
+      background: transparent;
+    }
+
+    &.btn-light {
+      color: white;
+      border-color: rgba($cloud, 0.5);
+
+      &:visited {
+        color: white;
+      }
+
+      &:hover,
+      &:focus {
+        color: white;
+        border-color: $yelloworange;
+      }
+    }
+  }
+}
