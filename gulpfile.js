@@ -39,16 +39,16 @@ var prod = !!(argv.prod);
 // ASSET FOLDER PATHS
 var paths = {
   images: {
-    src: 'assets/src/images/',
-    dest: 'assets/dist/images/',
+    src: './assets/src/images/',
+    dest: './assets/dist/images/',
   },
   scripts: {
-    src: 'assets/src/js/',
-    dest: 'assets/dist/js/'
+    src: './assets/src/js/',
+    dest: './assets/dist/js/'
   },
   styles: {
-    src: 'assets/src/scss/',
-    dest: 'assets/dist/css/'
+    src: './assets/src/scss/',
+    dest: './assets/dist/css/'
   }
 };
 
@@ -61,12 +61,6 @@ var files = {
   // SCRIPTS
   scriptsMain: [
     paths.scripts.src + 'main.js'
-  ],
-  scriptsHomepage: [
-    paths.scripts.src + 'homepage.js'
-  ],
-  scriptsSubpage: [
-    paths.scripts.src + 'subpage.js'
   ]
 };
 
@@ -141,13 +135,13 @@ gulp.task('styles', function () {
 });
 
 // CLEAN CSS
-gulp.task('clean-css', ['styles'], function () {
+gulp.task('clean-css', gulp.series('styles'), function () {
   return gulp.src(paths.styles.dest + '*.min.css', { read: false })
     .pipe(clean());
 });
 
 // COMPRESS STYLES
-gulp.task('compress-css', ['clean-css'], function () {
+gulp.task('compress-css', gulp.series('clean-css'), function () {
   return gulp.src(paths.styles.dest + '*.css')
     .pipe(sass().on('error', sass.logError))
     .on('error', notify.onError({
@@ -201,52 +195,28 @@ gulp.task('jslint', function () {
     .on('error', notify.onError({
       message: 'main.js linting failed'
     }));
-  var homepage = gulp.src(paths.scripts.src + 'homepage.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
-    .on('error', notify.onError({
-      message: 'homepage.js linting failed'
-    }));
-  var subpage = gulp.src(paths.scripts.src + 'subpage.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
-    .on('error', notify.onError({
-      message: 'subpage.js linting failed'
-    }));
-  return merge(main, homepage, subpage);
+  return merge(main);
 });
 
 // SCRIPTS
-gulp.task('scripts', ['jslint'], function () {
+gulp.task('scripts', gulp.series('jslint'), function () {
   var main = gulp.src(files.scriptsMain)
     .pipe(sourcemaps.init())
     .pipe(concat('main.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.scripts.dest));
-  var homepage = gulp.src(files.scriptsHomepage)
-    .pipe(sourcemaps.init())
-    .pipe(concat('homepage.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.scripts.dest));
-  var subpage = gulp.src(files.scriptsSubpage)
-    .pipe(sourcemaps.init())
-    .pipe(concat('subpage.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(paths.scripts.dest));
 
-  return merge(main, homepage, subpage);
+  return merge(main);
 });
 
 // CLEAN JS
-gulp.task('clean-js', ['scripts'], function () {
+gulp.task('clean-js', gulp.series('scripts'), function () {
   return gulp.src(paths.scripts.dest + '*.min.js', { read: false })
     .pipe(clean());
 });
 
 // COMPRESS SCRIPTS
-gulp.task('compress-scripts', ['clean-js'], function () {
+gulp.task('compress-scripts', gulp.series('clean-js'), function () {
   return gulp.src(paths.scripts.dest + '*.js')
     .pipe(uglify())
     .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
@@ -283,21 +253,32 @@ gulp.task('images', function () {
 });
 
 // DEFAULT TASK
-gulp.task('default', ['compress-css', 'compress-scripts', 'images'], function () {
-  gulp.watch(views.src + '**/*.css', ['viewstyles']);
-  gulp.watch(paths.styles.src + '**/*.scss', ['compress-css']);
-  gulp.watch([views.src + '**/*.js', '!../../views/views.js'], ['viewscripts']);
-  gulp.watch(paths.scripts.src + '**/*.js', ['compress-scripts']);
-  gulp.watch(paths.images.src + '**/*', ['images']);
+gulp.task('default', gulp.series('compress-css', 'compress-scripts'), function () {
+  gulp.watch(views.src + '**/*.css').on('change', gulp.series('viewstyles')),
+    gulp.watch(paths.styles.src + '**/*.scss').on('change', gulp.series('compress-css')),
+    gulp.watch([views.src + '**/*.js', '!../../views/views.js']).on('change', gulp.series('viewscripts')),
+    gulp.watch(paths.scripts.src + '**/*.js').on('change', gulp.series('compress-scripts'));
+  return;
 });
 
+gulp.task('watch', function () {
+  gulp.series('compress-css', 'compress-scripts');
+  gulp.watch(paths.styles.src + '**/*.scss').on('change', gulp.series('compress-css')),
+    gulp.watch(paths.styles.src + '**/*.scss').on('change', gulp.series('compress-css')),
+    gulp.watch([views.src + '**/*.js', '!../../views/views.js']).on('change', gulp.series('viewscripts')),
+    gulp.watch(paths.scripts.src + '**/*.js').on('change', gulp.series('compress-scripts'));
+  return;
+});
+
+
 // BROWSER SYNC TASK
-gulp.task('sync', ['compress-css', 'compress-scripts', 'images', 'browser-sync'], function () {
-  gulp.watch(views.src + '**/*.css', ['viewstyles']);
-  gulp.watch(paths.styles.src + '**/*.scss', ['compress-css']);
-  gulp.watch([views.src + '**/*.js', '!../../views/views.js'], ['viewscripts']);
-  gulp.watch(paths.scripts.src + '**/*.js', ['compress-scripts']);
-  gulp.watch(paths.images.src + '**/*', ['images']);
+gulp.task('sync', gulp.series('compress-css', 'compress-scripts', 'images', 'browser-sync'), function () {
+  gulp.watch(views.src + '**/*.css').on('change', gulp.series('viewstyles')),
+    gulp.watch(paths.styles.src + '**/*.scss').on('change', gulp.series('compress-css')),
+    gulp.watch([views.src + '**/*.js', '!../../views/views.js']).on('change', gulp.series('viewscripts')),
+    gulp.watch(paths.scripts.src + '**/*.js').on('change', gulp.series('compress-scripts')),
+    gulp.watch(paths.images.src + '**/*').on('change', gulp.series('images'));
+  return
 });
 
 // INSTALL BOWER DEPENDENCIES
@@ -313,7 +294,7 @@ var filterByExtension = function (extension) {
     restore: true
   });
 };
-gulp.task('bower-single-files', ['bower-install'], function () {
+gulp.task('bower-single-files', gulp.series('bower-install'), function () {
   var mainFiles = mainBowerFiles();
   if (!mainFiles.length) {
     return;
@@ -331,8 +312,8 @@ gulp.task('bower-single-files', ['bower-install'], function () {
 });
 
 // REMOVE BOWER COMPONENTS FOLDER
-gulp.task('clean-bower', ['bower-single-files'], function () {
+gulp.task('clean-bower', gulp.series('bower-single-files'), function () {
   del('bower_components/');
 });
 
-gulp.task('bower', ['clean-bower']);
+gulp.task('bower', gulp.series('clean-bower'));

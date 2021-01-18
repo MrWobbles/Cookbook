@@ -1,63 +1,84 @@
-.has-alerts .alerts {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background: $yelloworange;
-
-  .alert {
-    // order: 1;
+.has-alerts .alerts
+{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5;
-    @include fontsize(16 24);
-    color: $codgray;
-    background-image: linear-gradient(45deg, rgba($codgray, 0.1) 8.33%, $yelloworange 8.33%, $yelloworange 50%, rgba($codgray, 0.1) 50%, rgba($codgray, 0.1) 58.33%, $yelloworange 58.33%, $yelloworange 100%);
-    background-size: 8.49px 8.49px;
 
-    &:first-child {
-      display: flex;
+    padding: 10px;
+
+    background: #ff8000;
+
+    .alert
+    {
+        // order: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 5;
+
+        color: #666;
+        background-image: linear-gradient(45deg, rgba(#666, .1) 8.33%, #ff8000 8.33%, #ff8000 50%, rgba(#666, .1) 50%, rgba(#666, .1) 58.33%, #ff8000 58.33%, #ff8000 100%);
+        background-size: 8.49px 8.49px;
+
+        @include fontsize(16 24);
+
+        &:first-child
+        {
+            display: flex;
+        }
+
+        .icon
+        {
+            position: relative;
+            top: -1px;
+
+            order: 2;
+
+            width: 13px;
+            height: 18px;
+            margin-left: 10px;
+
+            color: rgba(#666, .2);
+
+            &:before
+            {
+                font-family: 'Font Awesome 5 Free';
+                font-size: 28px;
+                font-weight: 900;
+                font-style: normal;
+                font-variant: normal;
+
+                display: inline-block;
+
+                content: '\f105';
+
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+
+        &:visited
+        {
+            color: #666;
+        }
+
+        &:hover,
+        &:focus
+        {
+            text-decoration: none;
+
+            color: #444;
+
+            .icon
+            {
+                color: #444;
+            }
+        }
     }
 
-    .icon {
-      order: 2;
-      position: relative;
-      top: -1px;
-      margin-left: 10px;
-      width: 13px;
-      height: 18px;
-      color: rgba($codgray, 0.2);
-
-      &:before {
-        display: inline-block;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-        font-size: 28px;
-        content: '\f105';
-      }
+    .alert-text
+    {
+        order: 1;
     }
-
-    &:visited {
-      color: $codgray;
-    }
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      color: $bigstone;
-
-      .icon {
-        color: $bigstone;
-      }
-    }
-  }
-
-  .alert-text {
-    order: 1;
-  }
 }

@@ -12,7 +12,7 @@
     text-decoration: none;
     border: 0;
     border-radius: 5px;
-    background: $astronaut;
+    background: $323232;
 
     &:visited {
       color: white;
@@ -22,44 +22,44 @@
     &:hover {
       color: white;
       border: 0;
-      background: $bigstone;
+      background: #444444;
     }
   }
 
   .btn-secondary {
-    color: $codgray;
-    background: $yelloworange;
+    color: #666666;
+    background: #FF8000;
 
     &:visited {
-      color: $codgray;
+      color: #666666;
     }
 
     &:hover,
     &:focus {
-      color: $codgray;
+      color: #666666;
       background: $fuelyellow;
     }
   }
 
   .btn-tertiary {
-    color: $codgray;
-    border: 2px solid $mercury;
+    color: #666666;
+    border: 2px solid #dedede;
     background: transparent;
 
     &:visited {
-      color: $codgray;
+      color: #666666;
     }
 
     &:hover,
     &:focus {
-      color: $astronaut;
-      border: 2px solid $astronaut;
+      color: #323232;
+      border: 2px solid #323232;
       background: transparent;
     }
 
     &.btn-light {
       color: white;
-      border-color: rgba($cloud, 0.5);
+      border-color: rgba(#f2f2f2, 0.5);
 
       &:visited {
         color: white;
@@ -68,7 +68,7 @@
       &:hover,
       &:focus {
         color: white;
-        border-color: $yelloworange;
+        border-color: #FF8000;
       }
     }
   }

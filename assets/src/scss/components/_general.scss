@@ -1,6 +1,7 @@
 * {
-  box-sizing: border-box;
   text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-kerning: auto;
@@ -14,22 +15,23 @@
 html,
 body {
   position: relative;
-  -webkit-overflow-scrolling: touch;
-  height: 100%;
+  margin: 0 auto;
+  font-family: $standard;
   font-size: 100%;
-  background: white;
-  font-family: sans-serif;
-  margin: 0;
+  background: #dedede;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 .clearfix:after {
   display: table;
   clear: both;
-  content: "";
+  content: '';
 }
 
 a {
   color: blue;
+
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:visited {
@@ -38,8 +40,8 @@ a {
 
   &:hover,
   &:focus {
-    text-decoration: underline;
     color: purple;
+    text-decoration: underline;
   }
 }
 
@@ -49,10 +51,10 @@ input {
 
 .element-invisible {
   position: absolute !important;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
   width: 1px;
   height: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
 }
 
 .clear {
@@ -61,7 +63,7 @@ input {
   &:before,
   &:after {
     display: table;
-    content: "";
+    content: '';
   }
 
   &:after {

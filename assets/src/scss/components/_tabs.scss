@@ -1,73 +1,96 @@
 // tabs
-.tabs {
-  .tab-con {
-    margin-bottom: 0;
-  }
+.tabs
+{
+    .tab-con
+    {
+        margin-bottom: 0;
+    }
 
-  .tab-list[role='tablist'] {
-    // display: flex;
-    text-transform: none;
+    .tab-list[role='tablist']
+    {
+        // display: flex;
+        text-transform: none;
 
-    li {
-      // align-self: flex-end;
-      margin-right: 5px;
+        li
+        {
+            // align-self: flex-end;
+            margin-right: 5px;
 
-      &:last-child {
-        margin: 0;
-      }
+            &:last-child
+            {
+                margin: 0;
+            }
 
-      a {
-        position: relative;
-        bottom: -4px;
-        padding: 14px 32px;
-        @include fontsize(16 24);
-        background: $mercury;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+            a
+            {
+                position: relative;
+                bottom: -4px;
 
-        &[aria-selected] {
-          bottom: 0;
-          padding: 18px 32px;
-          color: white;
-          background: $astronaut;
+                padding: 14px 32px;
+
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                background: #323232;
+
+                @include fontsize(16 24);
+
+                &[aria-selected]
+                {
+                    bottom: 0;
+
+                    padding: 18px 32px;
+
+                    color: white;
+                    background: #222;
+                }
+
+                &:visited
+                {
+                    color: #666;
+                    background: #323232;
+                }
+
+                &:focus,
+                &:hover
+                {
+                    padding: 18px 32px;
+
+                    color: white;
+                    background: #222;
+                }
+            }
+        }
+    }
+
+    .tab-content
+    {
+        overflow: auto;
+
+        padding: 30px 30px 45px 30px;
+
+        color: #f9f9f9;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        background: rgba(#323232, .35);
+
+        @include medium-up
+        {
+            border-top-right-radius: 5px;
         }
 
-        &:visited {
-          color: $codgray;
-          background: $mercury;
+        *
+        {
+            @include fontsize(16 26);
         }
 
-        &:focus,
-        &:hover {
-          padding: 18px 32px;
-          color: white;
-          background: $astronaut;
+        p:first-of-type
+        {
+            margin-top: 0;
         }
-      }
-    }
-  }
 
-  .tab-content {
-    padding: 30px 30px 45px 30px;
-    color: $dovegray;
-    background: rgba($mercury, 0.35);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    overflow: auto;
-    @include medium-up {
-      border-top-right-radius: 5px;
+        *:last-child
+        {
+            margin-bottom: 0;
+        }
     }
-
-    * {
-      @include fontsize(16 26);
-    }
-
-    p:first-of-type {
-      margin-top: 0;
-    }
-
-    *:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
