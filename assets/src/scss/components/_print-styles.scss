@@ -1,0 +1,11 @@
+@media print {
+  .logo,
+  .return-to-listing,
+  footer a {
+    display: none;
+  }
+
+  header {
+    height: auto;
+  }
+}

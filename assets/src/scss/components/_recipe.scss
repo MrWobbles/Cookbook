@@ -1,0 +1,234 @@
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1280px;
+  padding: 80px 40px;
+  margin: 0 auto;
+
+  .recipe {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+    color: #222;
+    text-decoration: none;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.33s ease-in-out;
+
+    @media screen and (min-width: 600px) {
+      width: calc(50% - 40px);
+      margin-right: 40px;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      right: -10px;
+      bottom: -10px;
+      display: block;
+      width: 50px;
+      height: 50px;
+      font-size: 48px;
+      line-height: 15px;
+      letter-spacing: -3px;
+      color: #fff;
+      text-align: center;
+      text-indent: -2px;
+      background: #ccad8f;
+      border: 5px solid #fff;
+      border-radius: 50px;
+      content: '...';
+      opacity: 0;
+      transition: all 0.33s ease-in-out;
+    }
+
+    &:hover {
+      text-decoration: none;
+      box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2);
+
+      &:after {
+        right: -25px;
+        bottom: -25px;
+        opacity: 1;
+      }
+    }
+
+    .recipe-details {
+      min-width: 60%;
+      padding: 0 15px;
+    }
+
+    .food-picture {
+      width: 320px;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 25px 0 0 25px;
+
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.recipe-details-page {
+  background: #fff;
+
+  .quick-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 80px 5px;
+    margin-bottom: 80px;
+    font-weight: bold;
+    background: #f2f2f2;
+    border-bottom: 3px solid #d9d9d9;
+
+    .break {
+      flex-basis: 100%;
+      height: 0;
+    }
+
+    label {
+      padding: 5px 10px;
+      margin-right: 20px;
+      margin-bottom: 15px;
+      color: #fff;
+      background: #262626;
+      border-radius: 15px;
+    }
+  }
+
+  .ingredients {
+    width: calc(100% - 80px);
+    padding: 0;
+    padding: 20px 45px 20px 20px;
+    margin: 0 0 40px 0;
+    font-size: 18px;
+    background: #f2f2f2;
+    border-radius: 35px;
+
+    @media screen and (min-width: 850px) {
+      position: relative;
+      display: inline-block;
+      float: right;
+      width: auto;
+      height: auto;
+      min-width: 300px;
+      vertical-align: top;
+
+      &.fixed {
+        position: fixed;
+        top: 20px;
+        right: 80px;
+      }
+    }
+
+    li {
+      padding: 0;
+      margin: 10px 0;
+      list-style: none;
+
+      .measurement {
+        font-weight: bold;
+      }
+    }
+
+    input[type='checkbox'] {
+      position: relative;
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      vertical-align: -6px;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #dedede;
+      border-radius: 50px;
+
+      &:checked {
+        color: #fff;
+        background: #255c99;
+      }
+    }
+  }
+
+  .instructions {
+    width: 100%;
+    max-width: calc(100% - 80px);
+    padding: 0 0 90px 0;
+    margin: 0 auto;
+    text-align: left;
+
+    @media screen and (min-width: 850px) {
+      width: calc(100% - 160px);
+      max-width: none;
+      margin: 0 auto 0 80px;
+    }
+
+    ol {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      vertical-align: top;
+      list-style: none;
+
+      counter-reset: instruction-counter;
+
+      @media screen and (min-width: 850px) {
+        max-width: calc(100% - 340px);
+      }
+
+      li {
+        position: relative;
+        padding: 20px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 24px;
+        background: #f2f2f2;
+        border-radius: 0 25px 25px 25px;
+
+        counter-increment: instruction-counter;
+
+        &:before {
+          position: absolute;
+          top: 0;
+          left: -35px;
+          padding: 5px 25px 5px 10px;
+          font-size: 24px;
+          font-weight: bold;
+          color: #255c99;
+          background: #f2f2f2;
+          border-radius: 25px 0 0 25px;
+          content: counter(instruction-counter);
+        }
+      }
+    }
+  }
+}
+
+.return-to-listing {
+  a {
+    display: block;
+    width: 100%;
+    padding: 20px 80px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background: #255c99;
+    border-top: 3px solid #7ea3cc;
+    transition: all 0.33s ease-in-out;
+
+    &:hover {
+      font-size: 32px;
+    }
+  }
+}
