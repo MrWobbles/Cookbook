@@ -2,6 +2,10 @@
 .content-form {
   padding: 60px;
 
+  .form-field{
+    position: relative;
+  }
+
   label,
   .label {
     @include fontsize(18 13);
@@ -137,6 +141,30 @@
     &:focus {
       background: #222;
     }
+  }
+
+  .add-ingredient,
+  .add-instruction{
+    border: 2px solid #333;
+    background: transparent;
+    color: #333;
+    text-transform: uppercase; 
+    cursor: pointer;
+    transition: all .33s ease-in-out;
+
+    &:hover{
+      background: #333;
+      color: #fff;
+    }
+  }
+
+  .delete{
+    position: absolute;
+    right: 17px;
+    bottom: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
   }
 }
 

@@ -3052,6 +3052,8 @@ ul.six-column {
 .content-form {
   padding: 60px;
   padding: 3.75rem; }
+  .content-form .form-field {
+    position: relative; }
   .content-form label,
   .content-form .label {
     font-size: 18px;
@@ -3214,6 +3216,30 @@ ul.six-column {
     transition: all 0.33s ease-in-out; }
     .content-form input[type='submit']:hover, .content-form input[type='submit']:focus {
       background: #222; }
+  .content-form .add-ingredient,
+  .content-form .add-instruction {
+    border: 2px solid #333;
+    border: 0.125rem solid #333;
+    background: transparent;
+    color: #333;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all .33s ease-in-out;
+    -o-transition: all .33s ease-in-out;
+    transition: all .33s ease-in-out; }
+    .content-form .add-ingredient:hover,
+    .content-form .add-instruction:hover {
+      background: #333;
+      color: #fff; }
+  .content-form .delete {
+    position: absolute;
+    right: 17px;
+    right: 1.0625rem;
+    bottom: 30px;
+    bottom: 1.875rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase; }
 
 .json-editor-container {
   margin: -50px 60px 0;
