@@ -1,0 +1,113 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta name="apple-mobile-web-app-title" content="Collins' Family Cookbook">
+  <title>Collins' Family Cookbook</title>
+  <link rel="author" href="humans.txt" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Work+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap"
+    rel="stylesheet">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/dist/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="assets/dist/css/homepage.css" />
+
+</head>
+
+<body>
+
+  <header>
+    <a href="/" class="logo"><img src="assets/dist/images/logo.svg" alt="" /></a>
+    <h1>Collins' Family Cookbook</h1>
+  </header>
+
+  <main class="add-recipe">
+    <form action="add-recipe.php" method="post" autocomplete="off">
+      <div class="content-form">
+        <div class="form-field sm-full md-half">
+          <label for="recipe-name">Recipe Name</label>
+          <input type="text" name='recipe-name' />
+        </div>
+        <div class="form-field sm-full md-half md-last">
+          <label for="recipelink">Recipe Link</label>
+          <input type="text" name='recipelink' />
+        </div>
+        <div class="form-field sm-full md-half">
+          <label for="recipe-image">Recipe Image Path</label>
+          <input type="text" name='recipe-image' />
+        </div>
+        <div class="form-field sm-full md-half md-last">
+          <label for="category">Category</label>
+          <input type="text" name='category' />
+        </div>
+        <h2 for="Ingredients">Ingredients</h2>
+        <div class="ingredients-container">
+          <div class="form-field sm-full">
+            <label>Ingredient 1</label>
+            <input type="text" name="ingredients[]" class="ingredient-txt" />
+            <span class="delete">delete</span>
+          </div>
+        </div>
+        <br/>
+        <div class="form-field sm-full">
+          <button type="button" class="add-ingredient">Add Ingredient</button>
+        </div>
+        <hr/>
+        <div class="form-field sm-full md-quarter">
+          <label for="oventemp">Oven Temperature</label>
+          <input type="text" name='oventemp' />
+        </div>
+        <div class="form-field sm-full md-quarter">
+          <label for="cooktime">Cook Time</label>
+          <input type="text" name='cooktime' />
+        </div>
+        <div class="form-field sm-full md-quarter">
+          <label for="preptime">Prep Time</label>
+          <input type="text" name='preptime' />
+        </div>
+        <div class="form-field sm-full md-quarter md-last">
+          <label for="servings">Servings</label>
+          <input type="text" name='servings' />
+        </div>
+        <div class="form-field sm-full md-half">
+          <label for="author">Author</label>
+          <input type="text" name='author' />
+        </div>
+        <div class="form-field sm-full md-half md-last">
+          <label for="submittedby">Submitted By</label>
+          <input type="text" name='submittedby' />
+        </div>
+        <h2 for="instructions">Instructions</h2>
+        <div class="instructions-container">
+          <div class="form-field sm-full">
+            <label for="instruction_001">Step 1</label>
+            <textarea name="instructions[]" class="instruction-ta"></textarea>
+            <span class="delete">delete</span>
+          </div>
+        </div>
+        <br/>
+        <div class="form-field sm-full">
+          <button type="button" class="add-instruction">Add Step</button>
+        </div>
+        <hr/>
+        <div class="form-field sm-full">
+          <input type="submit" value="Submit Recipe" />
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    Collins' Family Cookbook
+  </footer>
+
+  <script src="assets/dist/js/main.js"></script>
+
+</body>
+
+</html>

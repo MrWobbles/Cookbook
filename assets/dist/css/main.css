@@ -3624,6 +3624,28 @@ figure {
     .highlighted-text ol:last-of-type {
       margin-bottom: 0; }
 
+a.site-action {
+  padding: 20px;
+  padding: 1.25rem;
+  display: inline-block;
+  text-align: center;
+  display: block;
+  background: #333;
+  color: #fff !important;
+  text-decoration: none;
+  width: 350px;
+  width: 21.875rem;
+  margin: 30px auto;
+  margin: 1.875rem auto;
+  border-radius: 50px;
+  border-radius: 3.125rem;
+  -webkit-transition: all .33s ease-in-out;
+  -o-transition: all .33s ease-in-out;
+  transition: all .33s ease-in-out; }
+  a.site-action:hover, a.site-action:focus {
+    background: #000;
+    font-weight: bold; }
+
 .recipes {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3786,6 +3808,8 @@ figure {
         height: auto;
         min-width: 300px;
         min-width: 18.75rem;
+        max-width: 300px;
+        max-width: 18.75rem;
         vertical-align: top; }
         .recipe-details-page .ingredients.fixed {
           position: fixed;
